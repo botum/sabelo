@@ -1,4 +1,4 @@
-﻿# encoding:utf-8
+# -*- coding: utf-8 -*-
 import datetime
 import hashlib
 from urllib import quote_plus, urlencode
@@ -10,6 +10,7 @@ from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.template.defaultfilters import slugify
 from django.db.models.signals import post_delete, post_save, pre_save
+from django.utils.translation import ugettext as _
 import django.dispatch
 
 from forum.managers import *
@@ -312,9 +313,9 @@ class Badge(models.Model):
     SILVER = 2
     BRONZE = 3
     TYPE_CHOICES = (
-        (GOLD,   u'金牌'),
-        (SILVER, u'银牌'),
-        (BRONZE, u'铜牌'),
+        (GOLD,   _('gold')),
+        (SILVER, _('silver')),
+        (BRONZE, _('bronze')),
     )
 
     name        = models.CharField(max_length=50)
@@ -651,3 +652,4 @@ mark_offensive.connect(record_mark_offensive, sender=Answer)
 tags_updated.connect(record_update_tags, sender=Question)
 post_save.connect(record_favorite_question, sender=FavoriteQuestion)
 user_updated.connect(record_user_full_updated, sender=User)
+

@@ -1,4 +1,5 @@
-﻿import datetime
+# -*- coding: utf-8 -*-
+import datetime
 import logging
 from django.contrib.auth.models import User, UserManager
 from django.db import connection, models, transaction
@@ -113,12 +114,10 @@ class TagManager(models.Manager):
             'WHERE tag_id = tag.id'
         ') '
         'WHERE id IN (%s)')
-    
     def get_valid_tags(self, page_size):
       from forum.models import Tag
       tags = Tag.objects.all().filter(deleted=False).exclude(used_count=0).order_by("-id")[:page_size]
       return tags
-    
     def get_or_create_multiple(self, names, user):
         """
         Fetches a list of Tags with the given names, creating any Tags

@@ -1,4 +1,5 @@
-﻿import re
+# -*- coding: utf-8 -*-
+import re
 from datetime import date
 from django import forms
 from models import *

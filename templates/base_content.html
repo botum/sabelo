@@ -1,4 +1,5 @@
 ﻿{% load i18n %}
+<!-- template base_content.html -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
     <head>
@@ -19,8 +20,8 @@
         </script>
         <script type="text/javascript">
         UserVoice.Tab.show({ 
-            key: 'cnprog',
-            host: 'cnprog.uservoice.com', 
+            key: '{{USERVOICE_KEY}}',
+            host: '{{USERVOICE_KEY}}.uservoice.com', 
             forum: 'general', 
             alignment: 'left', /* 'left', 'right' */
             background_color:'#777', 
@@ -74,3 +75,4 @@
         {% endblock %}
     </body>
 </html>
+<!-- end template base_content.html -->

@@ -1,4 +1,5 @@
 #!/usr/bin/python2.2
+# -*- coding: utf-8 -*-
 """HTML Diff: http://www.aaronsw.com/2002/diff
 Rough code, badly documented. Send me comments and patches."""
 

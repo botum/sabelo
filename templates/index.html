@@ -88,7 +88,8 @@
 	<div class="body">
          <p class="tagsbox">
         {% for tag in tags %}
-            <a rel="tag" title="{% trans 'Browse questions with tag of ' %}'{{ tag.name }}'" href="{% url forum.views.tag tag.name|urlencode %}">{{ tag.name }}</a>
+            <a rel="tag" 
+				title="{% blocktrans with tag.name as tagname %}see questions tagged '{{tagname}}'{% endblocktrans %}" href="{% url forum.views.tag tag.name|urlencode %}">{{ tag.name }}</a>
         {% endfor %}
         </p>
         <div class="more"><a href="/tags">{% trans "Popular tags" %} »</a> </div>

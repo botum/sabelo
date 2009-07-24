@@ -1,18 +1,19 @@
-﻿# encoding:utf-8
+# -*- coding: utf-8 -*-
+from django.utils.translation import ugettext as _
 """
 All constants could be used in other modules
 For reasons that models, views can't have unicode text in this project, all unicode text go here.
 """
 CLOSE_REASONS = (
-    (1, u'完全重复的问题'),
-    (2, u'不是编程技术问题'),
-    (3, u'太主观性、引起争吵的问题'),
-    (4, u'不是一个可以回答的“问题”'),
-    (5, u'问题已经解决，已得到正确答案'),
-    (6, u'已经过时、不可重现的问题'),
-    (7, u'太局部、本地化的问题'),
-    (8, u'恶意言论'),
-    (9, u'垃圾广告'),
+    (1, _('duplicate question')),
+    (2, _('question if off-topic or not relevant')),
+    (3, _('too subjective and argumentative')),
+    (4, _('is not an answer to the question')),
+    (5, _('the question is answered, right answer was accepted')),
+    (6, _('problem is not reproducible or outdated')),
+    #(7, u'太局部、本地化的问题',)
+    (7, _('question contains offensive inappropriate, or malicious remarks')),
+    (8, _('spam or advertising')),
 )
 
 TYPE_REPUTATION = (

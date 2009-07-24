@@ -1,5 +1,6 @@
 ﻿{% load extra_filters %}
 {% load i18n %}
+<!-- template base.html -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -8,7 +9,7 @@
         {% block meta %}{% endblock %}
         {% endspaceless %}
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="verify-v1" content="55uGNnQVJW8p1bbXeF/Xbh9I7nZBM/wLhRz6N/I1kkA=" />
+        <meta name="verify-v1" content="{{verify_v1_code}}" />
         <link rel="shortcut icon" href="/content/images/favicon.ico" >
         <link href="/content/style/style.css" rel="stylesheet" type="text/css" />
         <script type='text/javascript' src='/content/js/com.cnprog.utils.js'></script>
@@ -20,8 +21,8 @@
         </script>
         <script type="text/javascript">
         UserVoice.Tab.show({ 
-            key: 'cnprog',
-            host: 'cnprog.uservoice.com', 
+            key: '{{USERVOICE_KEY}}',
+            host: '{{USERVOICE_KEY}}.uservoice.com', 
             forum: 'general', 
             alignment: 'left', /* 'left', 'right' */
             background_color:'#777', 
@@ -81,3 +82,4 @@
         {% endblock %}
     </body>
 </html>
+<!-- end template base.html -->
