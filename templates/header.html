@@ -1,28 +1,15 @@
-<<<<<<< HEAD:templates/header.html
 <!-- template header.html -->
-=======
-<!-- template header.html -->
->>>>>>> e6d0c3145ca5447ede865e8145423cf5621a226a:templates/header.html
 {% load extra_tags %}
 {% load i18n %}
     <div id="top">
         <div id="header">
             {% if request.user.is_authenticated %}
-<<<<<<< HEAD:templates/header.html
-                <a href="/users/{{ request.user.id }}/{{ request.user.username }}/">{{ request.user.username }}</a> {% get_score_badge request.user %}
-                <a href="{% url user_signout %}">{% trans "logout" %}</a>
-			{% else %}
-			    <a href="{% url user_signin %}">{% trans "login" %}</a>
-            {% endif %}
-            <a href="/about">{% trans "About us" %}</a>
-=======
                 <a href="/users/{{ request.user.id }}/{{ request.user.username }}/">{{ request.user.username }}</a> {% get_score_badge request.user %} 
 				<a href="{% url user_signout %}">{% trans "logout" %}</a>
             {% else %}
                 <a href="{% url user_signin %}">{% trans "login" %}</a>
             {% endif %}
             <a href="/about">{% trans "about" %}</a>
->>>>>>> e6d0c3145ca5447ede865e8145423cf5621a226a:templates/header.html
             <a href="/faq">{% trans "faq" %}</a>
         </div>
     </div>
@@ -80,9 +67,4 @@
 			</table>
 		</div>
 	</div>
-<<<<<<< HEAD:templates/header.html
 <!-- end template header.html -->
-
-=======
-<!-- end template header.html -->
->>>>>>> e6d0c3145ca5447ede865e8145423cf5621a226a:templates/header.html
