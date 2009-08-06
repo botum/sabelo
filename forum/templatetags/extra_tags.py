@@ -112,7 +112,7 @@ def cnprog_pagesize(context):
             "pagesize" : context["pagesize"],
             "is_paginated": context["is_paginated"]
         }
-
+        
 @register.simple_tag
 def get_score_badge(user):
     BADGE_TEMPLATE = '<span class="score" title="%(reputation)s %(reputationword)s">%(reputation)s</span>'
@@ -139,24 +139,24 @@ def get_score_badge(user):
         'bronze' : user.bronze,
 		'badgesword' : _('badges'),
 		'reputationword' : _('reputation points'),
-	})
-
+    })
+    
 @register.simple_tag
 def get_score_badge_by_details(rep, gold, silver, bronze):
-    BADGE_TEMPLATE = '<span class="reputation-score" title="%(reputation)s用户积分">%(reputation)s</span>'
+    BADGE_TEMPLATE = '<span class="reputation-score" title="%(reputation)s %(repword)s">%(reputation)s</span>'
     if gold > 0 :
-        BADGE_TEMPLATE = '%s%s' % (BADGE_TEMPLATE, '<span title="%(gold)s枚金牌">'
-        '<span class="badge1">●</span>'
+        BADGE_TEMPLATE = '%s%s' % (BADGE_TEMPLATE, '<span title="%(gold)s %(badgeword)s">'
+        '<span class="badge1">&#9679;</span>'
         '<span class="badgecount">%(gold)s</span>'
         '</span>')
     if silver > 0:
-        BADGE_TEMPLATE = '%s%s' % (BADGE_TEMPLATE, '<span title="%(silver)s枚银牌">'
-        '<span class="badge2">●</span>'
+        BADGE_TEMPLATE = '%s%s' % (BADGE_TEMPLATE, '<span title="%(silver)s %(badgeword)s">'
+        '<span class="badge2">&#9679;</span>'
         '<span class="badgecount">%(silver)s</span>'
         '</span>')
     if bronze > 0:
-        BADGE_TEMPLATE = '%s%s' % (BADGE_TEMPLATE, '<span title="%(bronze)s枚铜牌">'
-        '<span class="badge3">●</span>'
+        BADGE_TEMPLATE = '%s%s' % (BADGE_TEMPLATE, '<span title="%(bronze)s %(badgeword)s">'
+        '<span class="badge3">&#9679;</span>'
         '<span class="badgecount">%(bronze)s</span>'
         '</span>')
     BADGE_TEMPLATE = smart_unicode(BADGE_TEMPLATE, encoding='utf-8', strings_only=False, errors='strict')
@@ -165,15 +165,17 @@ def get_score_badge_by_details(rep, gold, silver, bronze):
         'gold' : gold,
         'silver' : silver,
         'bronze' : bronze,
-    })
-
+		'repword' : _('reputation points'),
+		'badgeword' : _('badges'),
+    })      
+    
 @register.simple_tag
 def get_user_vote_image(dic, key, arrow):
     if dic.has_key(key):
         if int(dic[key]) == int(arrow):
             return '-on'
     return ''
-
+        
 @register.simple_tag
 def get_age(birthday):
     current_time = datetime.datetime(*time.localtime()[0:6])
@@ -218,7 +220,7 @@ def diff_date(date, limen=2):
         return date
     else:
         return timesince(date) + _(' ago')
-
+        
 @register.simple_tag
 def get_latest_changed_timestamp():
     try:

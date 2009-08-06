@@ -653,3 +653,4 @@ tags_updated.connect(record_update_tags, sender=Question)
 post_save.connect(record_favorite_question, sender=FavoriteQuestion)
 user_updated.connect(record_user_full_updated, sender=User)
 
+
