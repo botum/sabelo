@@ -3,4 +3,5 @@ settings_local.py
 *.swp
 *.mo
 *.log
+*.mo
 nbproject
