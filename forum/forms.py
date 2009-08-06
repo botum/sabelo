@@ -191,8 +191,4 @@ class EditUserForm(forms.Form):
                     raise forms.ValidationError(_('this email has already been registered, please use another one'))
                 raise forms.ValidationError(_('this email has already been registered, please use another one'))
         else:
-<<<<<<< HEAD:forum/forms.py
             return self.cleaned_data['email']
-=======
-            return self.cleaned_data['email']
->>>>>>> e6d0c3145ca5447ede865e8145423cf5621a226a:forum/forms.py
